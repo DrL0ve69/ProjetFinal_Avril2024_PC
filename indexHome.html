@@ -26,158 +26,243 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary"  data-bs-theme = 'dark'>
-        <div class="container-fluid">
-
-<!--  METTRE LE LOGO ICI !!!  -->
-
-            <a class="navbar-brand" href="indexHome.html">
-                <img src="svg/pen-svgrepo-com%20(1).svg" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
-            </a>
-
-            <a class="navbar-brand" href="indexHome.html">
-                Érudits des Internets
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="pointageIndex.html">LesPlusGrands</a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="indexMembres.html"> Nos membres </a>
-
-                    </li>
-
-                </ul>
-
-                <form class="d-flex">
-
-                    <label for="NomUtilisateur"
-                           style="color: green; display: flex; font-size: 1.5rem;
-                           justify-content: center; align-items: center;">
-                        NomUtilisateur:
-                    </label>
-                    <input id="NomUtilisateur" class="form-control me-2 m-2" type="text" placeholder="NomUtilisateur" autocomplete="username"
-                           aria-label="Se connecter">
-
-                    <label for="Password"
-                           style="color: green; display: flex; font-size: 1.5rem;
-                           justify-content: center; align-items: center;">
-                        Password:
-                    </label>
-                    <input id="Password" class="form-control me-2 m-2" type="password" placeholder="Password" autocomplete="current-password"
-                           aria-label="Mot de passe">
-
-                    <button class="btn btn-outline-success" type="submit">Connecter</button>
-
-                </form>
-
-            </div>
-
-        </div>
-    </nav>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary"  data-bs-theme = 'dark'>
+		<div class="container-fluid">
+			
+			<a class="navbar-brand" href="indexHome.html">
+				<img src="svg/pen-svgrepo-com%20(1).svg" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
+			</a>
+			
+			<a class="navbar-brand" href="indexHome.html">
+				Érudits des Internets
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarScroll">
+				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+					
+					<li class="nav-item">
+						
+						<a class="nav-link" href="pointageIndex.html">LesPlusGrands</a>
+					
+					</li>
+					
+					<li class="nav-item">
+						
+						<a class="nav-link" href="indexMembres.html"> Nos membres </a>
+					
+					</li>
+				
+				</ul>
+				
+				<form method="get" class="d-flex">
+					
+					<label for="NomUtilisateur"
+					       style="color: green; display: flex; font-size: 1.5rem;
+	                           justify-content: center; align-items: center;">
+						NomUtilisateur:
+					</label>
+					<input id="NomUtilisateur" class="form-control me-2 m-2" type="text" placeholder="NomUtilisateur" autocomplete="username"
+					       aria-label="Se connecter" autofocus>
+					
+					<label for="Password"
+					       style="color: green; display: flex; font-size: 1.5rem;
+	                           justify-content: center; align-items: center;">
+						Password:
+					</label>
+					<input id="Password" class="form-control me-2 m-2" type="password" placeholder="Password" autocomplete="current-password"
+					       aria-label="Mot de passe">
+					
+					<button class="btn btn-outline-success" type="submit">Connecter</button>
+				
+				</form>
+			
+			</div>
+		
+		</div>
+	</nav>
 <!-- FIN DE LA BARRE DE NAVIGATION!!!  -->
 
-	<main>
-		<div class="container"><h2 class="h2">Devenez un érudit(e)</h2></div>
-		
-		<form style="border: 3px solid blue">
-			
-			<div class="container" style="border: solid 2px green;">
-				
-				<div class="container">
-					
-					<div class="container">
-						
-						<label class="form-label" for="nom">Nom : </label>
-						<input type="text" name="nom" id="nom" placeholder="Entrez votre nom"
-						       maxlength="50" autofocus required>
+<!--DÉBUT MAIN!-->
 
-						<label class="form-label" for="prenom">Prenom : </label>
-						<input class="text" name="prenom" id="prenom" placeholder="Prenom" required>
-						
-					</div>
-					
-					<div class="container">
-						<label class="form-label" for="numTelephone">Numéro de téléphone : </label>
-						<input class="text" name="numTelephone" id="numTelephone" placeholder="Numéro Téléphone" autocomplete="tel-national"
-						       maxlength="16" required>
-					</div>
-					
-					<div class="container">
-						<label class="form-label" for="email">Adresse courriel : </label>
-						<input class="text" name="email" id="email" placeholder="Email@mail.com" autocomplete="off" required>
-					</div>
-					
-					<div class="container">
-						<label class="form-label" for="nomUtilisateurCreation">Nom Utilisateur : </label>
-						<input class="text" name="NomUtilisateurCreation" id="nomUtilisateurCreation"
-						       placeholder="Nom Utilisateur" required>
-					</div>
-					
-					<div class="container">
-						<label class="form-label" for="passwordCreation">Nouveau mot de passe : </label>
-					</div>
-					<div class="container">
-						
-						<input type="password" class="text" id="passwordCreation"
-						       placeholder="Mot de passe" autocomplete="new-password" required>
-					</div>
-					
-					<div class="container">
-						<label class="form-label" for="passwordCreationPrime">Répéter mot de passe : </label>
-					</div>
-					<div class="container">
-						<input type="password" class="text" id="passwordCreationPrime"
-						       placeholder="Mot de passe" autocomplete="new-password" required>
-					</div>
-					
-					<div class="container" id="container-flex2">
-						
-						<label class="m-3" for="boutonSoumettre">
-							<button class="btn btn-outline-success" name="boutonSoumettre" id="boutonSoumettre" type="submit"
-							        onsubmit="CreerNouveauMembre();">
-								Soumettre
-							</button>
-						</label>
-						
-						<label class="m-3" for="boutonAnnuler">
-							<button class="btn btn-outline-danger" name="boutonAnnuler" id="boutonAnnuler" type="reset"
-							        onclick="document.querySelector('#boutonSoumettre').disabled = false;">
-								Annuler
-							</button>
-						</label>
-						
-					</div>
-
-				</div>
-				
-			</div>
+	<main class="jumbotron">
+		<div class="container page-header"><h2 class="h2 text-center">Devenez un érudit(e)</h2></div>
+		
+		<div class="container-fluid">
 			
-		</form>
-		
-		<section class="section"><h2 class="h2" style="text-align: center;">Testez vos habiletés intellectuelles avec notre QUIZ !</h2> </section>
-		
-		<section class="container">
-			<form>
+			<form class="form-horizontal">
 				<fieldset>
 					
-					<h3 class="h-3">Êtes-vous prêt(e)s ?!?!?! <button class="btn btn-outline-warning" type="button" disabled="true">
-						Débuter le questionnaire</button>
-					</h3>
+					<div class="container">
+						
+						<div class="form-group">
+							
+							
+							<label class="control-label col-sm-2" for="nom">Nom : </label>
+							<div class="col-sm-3">
+								<input type="text" class="form-control" name="prenom" id="nom" placeholder="Nom" required>
+							</div>
+							
+							<label class="control-label col-sm-2" for="prenom">Prenom : </label>
+							<div class="col-sm-3">
+								<input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prenom" required>
+							</div>
+						
+						
+						</div>
+						
+						<div class="form-group">
+							
+							<label class="control-label col-sm-2" for="numTelephone">Numéro de téléphone : </label>
+							<div class="col-sm-3">
+								<input class="form-control col-sm-2" name="numTelephone" id="numTelephone" placeholder="Numéro Téléphone"
+								       autocomplete="tel-national"
+								       maxlength="16" required>
+							</div>
+	
+						</div>
+						
+						<div class="form-group">
+							
+							<label class="control-label col-sm-2" for="email">Adresse courriel : </label>
+							<div class="col-sm-3">
+								<input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com" autocomplete="off"
+								       required>
+							</div>
+							
+						</div>
+						
+						<div class="form-group">
+							
+							<label class="control-label col-sm-2" for="nomUtilisateurCreation">Nom Utilisateur : </label>
+							<div class="col-sm-3">
+								<input class="form-control" name="NomUtilisateurCreation" id="nomUtilisateurCreation"
+								       placeholder="Nom Utilisateur" required>
+							</div>
+
+						</div>
+						
+						<div class="form-group">
+							
+							<label class="form-label" for="passwordCreation">Nouveau mot de passe : </label>
+							<div class="col-sm-3">
+								<input type="password" class="form-control" id="passwordCreation"
+								       placeholder="Mot de passe" autocomplete="new-password" required>
+							</div>
+							
+						</div>
+						<div class="form-group">
+							
+							<label class="form-label" for="passwordCreationPrime">Réécrivez votre mot de passe : </label>
+							<div class="col-sm-3">
+								<input type="password" class="form-control" id="passwordCreationPrime"
+								       placeholder="Mot de passe" autocomplete="new-password" required>
+							</div>
+						
+						</div>
+						
+						<div class="container" id="container-flex2">
+							
+							<label class="m-3" for="boutonSoumettre">
+								<button class="btn btn-outline-success" name="boutonSoumettre" id="boutonSoumettre" type="submit"
+								        onsubmit="CreerNouveauMembre();">
+									Soumettre
+								</button>
+							</label>
+							
+							<label class="m-3" for="boutonAnnuler">
+								<button class="btn btn-outline-danger" name="boutonAnnuler" id="boutonAnnuler" type="reset">
+									Annuler
+								</button>
+							</label>
+						
+						</div>
+						
+					</div>
 					
 				</fieldset>
 			</form>
+		</div>
+		
+
+		
+		<section class="section"><h2 class="h2" style="text-align: center;">Testez vos habiletés intellectuelles avec notre QUIZ !</h2> </section>
+		
+		<section class="container-fluid">
+			
+					<h3 class="h3">
+						Êtes-vous prêt(e)s ?!?!?!
+
+						<button class="btn btn-outline-primary btn-success disabled" type="button" id="boutonDebutQuiz">
+							Débuter le questionnaire
+						</button>
+
+					</h3>
+			
 		</section>
 		
+		<!-- DÉBUT DU QUIZ POUR LE POINTAGE!-->
+		
+		<form class="form-container"> <!-- Mettre l'attribut dans la balise <form> : <form hidden="hidden"> !-->
+			<fieldset>
+				<div class="container-fluid" id="containerQuiz">
+					
+					<div class="form-group col-12">
+						<h4 class="h4">Question1 : Lequel de ces ouvrages (livres), Pierre Falardeau a-t-il écrit ?</h4>
+						
+						<label class="radio-inline col-6"><input type="radio" name="optradio" checked>
+							<strong class="mark"> A) </strong>La liberté n'est pas une marque de yogourt.
+						</label>
+						
+						<label class="radio-inline col-6"><input type="radio" name="optradio">
+							<strong class="mark"> B) </strong>Le portrait du colonisateur/colonisé.
+						</label>
+						
+						<label class="radio-inline col-6"><input type="radio" name="optradio">
+							<strong class="mark"> C) </strong>La grenade dans la main de ce nègre, est-elle une arme ou un fruit ?
+						</label>
+						
+						<label class="radio-inline col-6"><input type="radio" name="optradio">
+							<strong class="mark"> D) </strong>L'étranger.
+						</label>
+					
+					</div>
+					
+					
+					<div class="form-group">
+						<label for="sel1">
+							<h4 class="h4">
+								Question2 : Comment nomme-t-on le conflit/guerre(1837-1838), qui a mené à l'acte d'Union du haut
+								et bas Canada en 1840, et ainsi contribua et contribue toujours à l'assimilation des Canadiens (Canadiens
+								français(Québécois))?
+							</h4>
+						</label>
+						
+						<select class="form-control" id="sel1">
+							<option>La guerre des Nordiques</option>
+							<option>La Conquête</option>
+							<option>La Révolution tranquille</option>
+							<option>La Rébellion des Patriotes</option>
+						</select>
+					</div>
+					
+					<div class="container-fluid">
+						<button type="submit" class="btn btn-success btn-block">Soumettre</button>
+					</div>
+					
+				</div>
+				
+			</fieldset>
+		</form>
+		
 	</main>
+	
+<!-- FIN DU MAIN !-->
+
+<!-- DÉBUT DU FOOTER !-->
+
+<footer class="panel-footer text-center">Copyright Dr.L0v3</footer>
+
 </body>
 </html>
