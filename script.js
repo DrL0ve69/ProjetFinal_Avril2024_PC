@@ -1,39 +1,76 @@
-// 1. Définir la classe Membre et ses propriétés :
+// 1. Définir les variables du DOM et des inputs/paramètres :
+const nomFormulaire = $('#nom').val(); const prenomFormulaire = $('#prenom').val(); const emailFormulaire = $('#email').val();
+const couleurFavFormulaire = '#';
+const nomUtilisateurFormulaire = $('#nomUtilisateur').val();
+const passwordFormulaire = $('#passwordCreation').val(); const passwordPrime = $('#passwordCreationPrime').val();
 
-function Membre( nom, prenom, telephone, codePostal, email, nomUtilisateur, password, static1 = static ) {
 
-    this.Nom = nom; this.Prenom = prenom; this.Telephone = telephone; this.CodePostal = codePostal; this.Email = email;
-    this.NomUtilisateur = nomUtilisateur; this.Password = password;
-    // Ajouter après l'ajout du nouveau membre → this.Pointage = pointage;
-    this.Id =0;                                    // à tester sinon public static Id =>
-    // private
-    // id=0; id+=;
+// 2. Définir la classe Membre et ses propriétés :
+class Membre
+{
+    listeMembres = [Membre];
+    constructor(nom, prenom, email, couleurFavorite, nomUtilisateur, password, avatar, pointageQuiz = 0)
+    {
+        // À voir si ID fonctionne sinon utilise static
+        let id =0;
+        function AugmenterID(){id++;}
+        AugmenterID();
+        this.Id = id;
+        
+        this.Nom = nom; this.Prenom = prenom; this.Email = email;
+        this.NomUtilisateur = nomUtilisateur; this.Password = password;
+        this.PointageQuiz = pointageQuiz; this.Avatar = avatar;
+        
+        this.listeMembres.add(this.NomUtilisateur);
+    }
+    
+    
+    toString()
+    {
+    return `${this.Id}. ${this.Nom}, ${this.Prenom} \n \n
+                        Nom Utilisateur : ${this.NomUtilisateur}, Pointage au Quiz : ${this.PointageQuiz} points. \n \n
+                        ${this.Avatar} \n`;
+    }
+
+    CreerNouveauMembre()
+    {
+        function ValidationFormNouveauMembre()
+        {
+            
+            const patternNom = /^[A-Z][a-z]*$/;
+            const nomValide = patternNom.test( nomFormulaire );
+            const prenomValide = patternNom.test( prenomFormulaire );
+            
+            const patternEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+            const emailValide = patternEmail.test( emailFormulaire );
+            
+            if (nomValide && prenomValide && emailValide && passwordFormulaire === passwordPrime)
+            { return true }
+            else return false;
+        }
+        if(ValidationFormNouveauMembre ===true)
+        {
+            let nouveauMembre = new Membre( nomFormulaire, prenomFormulaire, emailFormulaire, couleurFavFormulaire,
+                nomUtilisateurFormulaire, passwordFormulaire, '', 0 );
+            document.getElementById( 'divMembresId' ).innerText = nouveauMembre.toString();
+            document.getElementById( 'paragrapheMembres' ).textContent = nouveauMembre.toString();
+        }
+        else {console.alert( 'Votre formulaire contient des données manquantes ou erronées' )}
+    }
 }
 
-function CreerNouveauMembre(){
-// Si valider est vrai, crée le nouveau membre et enregistre-le dans une liste, puis dans le JSON.
-    
-    Membre.Id = Membre.Id + 1 ;
-    let nouveauMembre = new Membre($('#nom').val(), $('#prenom').val(), $('#numTelephone').val(), $('#codePostal').val(),
-        $('#email').val(), $('#nomUtilisateur').val(), $('#passwordCreation').val()) ;
-    nouveauMembre.Id = Membre.Id;
-    
-    // Ajouter le membre au JSON et à la page des membres.
-}
+        
+        //if(nomFormulaire.valid && prenomFormulaire.valid && emailFormulaire.valid &&
+        // couleurFavFormulaire.valid
+           // && nomUtilisateurFormulaire.valid && passwordFormulaire.valid) return true
+        //else return false
 
-function Reformatter(){
-    
-    var element = document.querySelector("#telephone");
-    var ancien_tel = element.value;
-    
-    var nouveau_tel = "(" + ancien_tel.substring(0,3) + ") " + ancien_tel.substring(3,6) + "-" + ancien_tel.substring(6);
-    element.value = nouveau_tel;
-}
 
+// Ajouter le membre au JSON et à la page des membres.
 // Ouvre dans un nouvel onglet l'exempleFormulaire1
 
 // boutonFooter.onclick=(event)=> { window.open(lienExempleFormulaire.href) };
-// lienIndex.href = "index.html"; lienExempleFormulaire.href = "exempleFormulaire1.html";
+// lienIndex.href = "index.html"; lienExempleFormulaire.href = "exempleFormulaire1.html" ;
 
 
 // 1. Manipulation du DOM (document) pour créer l'interface de jeu : JQUERY
@@ -148,7 +185,7 @@ function Reformatter(){
 //         // Inscririre les données dans la session
 //         //sessionStorage.setItem("nbPommes", document.getElementById("nbPommes").value);
 //         // Créer le panier
-//         //let monPanier = new Panier(nouveauFruit, 0, 0, nouveauFruit.sousTotal);
+//         //let monPanier = new Panier (nouveauFruit, 0, 0, nouveauFruit.sousTotal) ;
 //         // Inscrire le panier dans la session pour y avoir accès sur la deuxième page.
 //         sessionStorage.setItem("panier", panier);
 //         // sessionStorage.setItem("panier", panier);

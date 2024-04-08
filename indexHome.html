@@ -64,7 +64,9 @@
 						NomUtilisateur:
 					</label>
 					<input id="NomUtilisateur" class="form-control me-2 m-2" type="text" placeholder="NomUtilisateur" autocomplete="username"
-					       aria-label="Se connecter" autofocus>
+					       aria-label="Se connecter" pattern="/{A-Z}{1}{a-z}*/"
+					       oninvalid="setCustomValidity('Entrez votre nom ( La première lettre doit être majuscule ) ')"
+					       autofocus>
 					
 					<label for="Password"
 					       style="color: green; display: flex; font-size: 1.5rem;
@@ -138,7 +140,7 @@
 							<label class="control-label col-sm-2" for="nomUtilisateurCreation">Nom Utilisateur : </label>
 							<div class="col-sm-3">
 								<input class="form-control" name="NomUtilisateurCreation" id="nomUtilisateurCreation"
-								       placeholder="Nom Utilisateur" required>
+								       autocomplete="username" placeholder="Nom Utilisateur" required>
 							</div>
 
 						</div>
@@ -166,7 +168,7 @@
 							
 							<label class="m-3" for="boutonSoumettre">
 								<button class="btn btn-outline-success" name="boutonSoumettre" id="boutonSoumettre" type="submit"
-								        onsubmit="CreerNouveauMembre();">
+								        onsubmit="CreerNouveauMembre()">
 									Soumettre
 								</button>
 							</label>
@@ -231,15 +233,15 @@
 					
 					
 					<div class="form-group">
-						<label for="sel1">
-							<h4 class="h4">
+						<label for="question1">
+							<strong class="h4">
 								Question2 : Comment nomme-t-on le conflit/guerre(1837-1838), qui a mené à l'acte d'Union du haut
 								et bas Canada en 1840, et ainsi contribua et contribue toujours à l'assimilation des Canadiens (Canadiens
 								français(Québécois))?
-							</h4>
+							</strong>
 						</label>
 						
-						<select class="form-control" id="sel1">
+						<select class="form-control" id="question1">
 							<option>La guerre des Nordiques</option>
 							<option>La Conquête</option>
 							<option>La Révolution tranquille</option>
@@ -259,7 +261,11 @@
 	</main>
 	
 <!-- FIN DU MAIN !-->
-
+	<div id="divMembresId">
+	<p id="paragrapheMembres">
+	
+	</p>
+	</div>
 <!-- DÉBUT DU FOOTER !-->
 
 <footer class="panel-footer text-center">Copyright Dr.L0v3</footer>
