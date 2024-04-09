@@ -4,25 +4,86 @@ const couleurFavFormulaire = '#';
 const nomUtilisateurFormulaire = $('#nomUtilisateur').val();
 const passwordFormulaire = $('#passwordCreation').val(); const passwordPrime = $('#passwordCreationPrime').val();
 
+// 1.1 Variables des URL
+const urlMockAPIMembres = new URL('https://660c04c03a0766e85dbd2c17.mockapi.io/api/membres');
+const top10Membres = new URL('https://660c04c03a0766e85dbd2c17.mockapi.io/api/membres/Membres?limit=10');
+
+
+//LES CODES MOCKAPI
+// Get membres
+fetch('https://660c04c03a0766e85dbd2c17.mockapi.io/api/membres/Membres', {
+    method: 'GET',
+    headers: {'content-type':'application/json'},
+}).then(res => {
+    if (res.ok) {
+        return res.json();
+    }
+    // handle error
+}).then(tasks => {
+    //faire le storage
+    sessionStorage.getItem(urlMockAPIMembres.href);
+}).catch(error => {
+    // handle error
+    console.alert(error)
+})
+
+// Créer un nouveau membre
+
+const newTask = {
+    content: 'Check out mockapi.io',
+    completed: false,
+};
+
+fetch('https://660c04c03a0766e85dbd2c17.mockapi.io/api/membres/Membres', {
+    method: 'POST',
+    headers: {'content-type':'application/json'},
+    // Send your data in the request body as JSON
+    body: JSON.stringify(newTask)
+}).then(res => {
+    if (res.ok) {
+        return res.json();
+    }
+    // handle error
+    console.log(res)
+}).then(membre => {
+    // do something with the new membre
+    console.log(membre);
+    sessionStorage.getItem(top10Membres.href);
+
+}).catch(error => {
+    // handle error
+    console.log(error);
+})
+
+
+
+// top 10
+
+//top10Membres.searchParams.append('limit', "10"); //https://PROJECT_TOKEN.mockapi.io/tasks?completed=false&page=1&limit=10
+
+fetch(top10Membres, {
+    method: 'GET',
+    headers: {'content-type':'application/json'},
+}).then(res => {
+    if (res.ok) {
+        return res.json();
+    }
+    // handle error
+}).then(tasks => {
+    // mockapi returns first 10 tasks that are not completed
+}).catch(error => {
+    // handle error
+})
+
+
 
 // 2. Définir la classe Membre et ses propriétés :
-class Membre
+Function Membre(nom = "", prenom = "", nomPokemon = "", pokemonImg = "", nomUtilisateur = "", email = "", password = "")
 {
-    listeMembres = [Membre];
-    constructor(nom, prenom, email, couleurFavorite, nomUtilisateur, password, avatar, pointageQuiz = 0)
-    {
-        // À voir si ID fonctionne sinon utilise static
-        let id =0;
-        function AugmenterID(){id++;}
-        AugmenterID();
-        this.Id = id;
-        
-        this.Nom = nom; this.Prenom = prenom; this.Email = email;
-        this.NomUtilisateur = nomUtilisateur; this.Password = password;
-        this.PointageQuiz = pointageQuiz; this.Avatar = avatar;
-        
-        this.listeMembres.add(this.NomUtilisateur);
-    }
+    this.Nom = nom; this.Prenom = prenom; this.Email = email;
+    this.NomUtilisateur = nomUtilisateur; this.Password = password;
+
+
     
     
     toString()
@@ -32,12 +93,17 @@ class Membre
                         ${this.Avatar} \n`;
     }
 
+    toJSON(key, value)
+    {
+        localStorage.setItem(this.toString(), value);
+    }
+
     CreerNouveauMembre()
     {
         function ValidationFormNouveauMembre()
         {
             
-            const patternNom = /^[A-Z][a-z]*$/;
+            const patternNom = /^[A-Z][a-z]{0,19}$/;
             const nomValide = patternNom.test( nomFormulaire );
             const prenomValide = patternNom.test( prenomFormulaire );
             
@@ -54,6 +120,7 @@ class Membre
                 nomUtilisateurFormulaire, passwordFormulaire, '', 0 );
             document.getElementById( 'divMembresId' ).innerText = nouveauMembre.toString();
             document.getElementById( 'paragrapheMembres' ).textContent = nouveauMembre.toString();
+            this.toJSON();
         }
         else {console.alert( 'Votre formulaire contient des données manquantes ou erronées' )}
     }
@@ -195,7 +262,20 @@ class Membre
 //     }
 // }
 
-// ACTIVATION DES POPOVER =>
+Package.describe({
+    name: 'twbs:bootstrap', // https://atmospherejs.com/twbs/bootstrap
+    summary: 'The most popular front-end framework for developing responsive, mobile first projects on the web.',
+    version: '5.3.3',
+    git: 'https://github.com/twbs/bootstrap.git'
+})
+
+Package.onUse(api => {
+    api.versionsFrom('METEOR@1.0')
+    api.addFiles([
+        'dist/css/bootstrap.css',
+        'dist/js/bootstrap.js'
+    ], 'client')
+})
 
 
 
